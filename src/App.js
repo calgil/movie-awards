@@ -12,6 +12,7 @@ function App() {
     }
     document.body.style.overflow = "unset";
   }, [voteCast]);
+
   return (
     <div className="app">
       {voteCast && <BallotPreview />}
