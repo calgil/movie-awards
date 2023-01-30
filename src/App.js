@@ -1,16 +1,31 @@
-import './App.css';
-import Ballot from './Components/Ballot/Ballot';
+import { useEffect } from "react";
+import { BallotPreview } from "./Components/BallotPreview";
+import { Category } from "./Components/Category";
+import { useMovies } from "./providers/movies.provider";
 
 function App() {
-  // Feel free to remove the contents of the header tag to make more room for your code
+  const { categories, submitBallot, voteCast } = useMovies();
+
+  useEffect(() => {
+    if (voteCast) {
+      document.body.style.overflow = "hidden";
+    }
+  }, [voteCast]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-      <Ballot />
+    <div className="app">
+      {voteCast && <BallotPreview />}
+      <>
+        <header>
+          <h1>Awards 2021</h1>
+        </header>
+        {categories &&
+          categories.map((category) => (
+            <Category key={category.id} category={category} />
+          ))}
+        <button className="submit-btn" type="submit" onClick={submitBallot}>
+          Submit Ballot Button
+        </button>
+      </>
     </div>
   );
 }
