@@ -8,8 +8,9 @@ function App() {
 
   useEffect(() => {
     if (voteCast) {
-      document.body.style.overflow = "hidden";
+      return (document.body.style.overflow = "hidden");
     }
+    document.body.style.overflow = "unset";
   }, [voteCast]);
   return (
     <div className="app">

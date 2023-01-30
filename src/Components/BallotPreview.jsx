@@ -12,6 +12,11 @@ export const BallotPreview = () => {
             Vote Again
           </button>
         )}
+        {voteSuccess && (
+          <button className="close-btn" onClick={closeVoteModal}>
+            X
+          </button>
+        )}
         {voteError && <h2 className="vote-error">{voteError}</h2>}
         {!voteError && (
           <>

@@ -117,9 +117,31 @@ img {
   transform: scale(1.1);
 }
 
+.ballot-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(113, 113, 113, 0.6);
+  overflow-y: scroll;
+  z-index: 500;
+}
+
+.ballot-body {
+  background-color: #fff;
+  position: relative;
+  color: black;
+  width: 80vw;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
 .back-btn {
   position: absolute;
-  left: 100px;
+  left: 50px;
   background-color: #009b86;
   color: white;
   transition: all 200ms ease-in-out;
@@ -136,25 +158,19 @@ img {
   border: 1px solid black;
 }
 
-.ballot-modal-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(113, 113, 113, 0.6);
-  overflow-y: scroll;
-  z-index: 500;
+.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
 }
 
-.ballot-body {
-  background-color: #fff;
-  color: black;
-  width: 80vw;
-  margin: 20px auto;
-  padding: 30px;
-  border-radius: 5px;
-  overflow-y: scroll;
+.close-btn:hover {
+  font-size: 1.8rem;
 }
 
 .ballot-body h2 {
@@ -183,4 +199,8 @@ img {
   color: white;
   margin: 0 auto;
   min-height: 360px;
+}
+
+.ballot-preview .nominee .select-btn {
+  display: none;
 }
