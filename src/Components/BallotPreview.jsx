@@ -7,20 +7,26 @@ export const BallotPreview = () => {
   return (
     <div className="ballot-modal-bg">
       <div className="ballot-body">
-        {!voteSuccess && (
-          <button className="back-btn" onClick={closeVoteModal}>
-            Vote Again
-          </button>
-        )}
-        {voteSuccess && (
-          <button className="close-btn" onClick={closeVoteModal}>
-            X
-          </button>
-        )}
+        <div className="ballot-header">
+          {voteSuccess && !voteError ? (
+            <>
+              <h2>Success</h2>
+              <button className="close-btn" onClick={closeVoteModal}>
+                X
+              </button>
+            </>
+          ) : (
+            <>
+              <h2>Ballot Preview</h2>
+              <button className="back-btn" onClick={closeVoteModal}>
+                Change Vote
+              </button>
+            </>
+          )}
+        </div>
         {voteError && <h2 className="vote-error">{voteError}</h2>}
         {!voteError && (
           <>
-            <h2>{voteSuccess ? "Success" : "Ballot Preview"}</h2>
             <div className="ballot-preview">
               {ballotData.map((vote) => (
                 <div className="vote-display" key={vote.category.id}>
@@ -28,7 +34,7 @@ export const BallotPreview = () => {
                   <Nominee nominee={vote.nominee} />
                 </div>
               ))}
-              <button className="submit-btn" onClick={confirmBallot}>
+              <button className="confirm-btn" onClick={confirmBallot}>
                 Confirm Selection
               </button>
             </div>

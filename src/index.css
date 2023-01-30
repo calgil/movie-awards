@@ -38,12 +38,14 @@ h1 {
 
 .category h3 {
   margin-bottom: 15px;
+  margin-left: 20px;
 }
 
 .nominee-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin: auto 20px;
 }
 
 .nominee {
@@ -129,8 +131,8 @@ img {
 }
 
 .ballot-body {
-  background-color: #fff;
   position: relative;
+  background-color: #fff;
   color: black;
   width: 80vw;
   margin: 20px auto;
@@ -139,9 +141,14 @@ img {
   overflow-y: scroll;
 }
 
+.ballot-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .back-btn {
-  position: absolute;
-  left: 50px;
   background-color: #009b86;
   color: white;
   transition: all 200ms ease-in-out;
@@ -159,9 +166,6 @@ img {
 }
 
 .close-btn {
-  position: absolute;
-  right: 30px;
-  top: 50px;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
@@ -173,10 +177,10 @@ img {
   font-size: 1.8rem;
 }
 
-.ballot-body h2 {
+.vote-error {
   text-align: center;
   margin: 30px 0;
-  padding-top: 10px;
+  color: red;
 }
 
 .ballot-preview {
@@ -203,4 +207,25 @@ img {
 
 .ballot-preview .nominee .select-btn {
   display: none;
+}
+
+.confirm-btn {
+  position: fixed;
+  bottom: 50px;
+  right: 150px;
+  background-color: #009b86;
+  color: white;
+  transition: all 200ms ease-in-out;
+  line-height: 2.5;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  z-index: 501;
+}
+
+.confirm-btn:hover,
+.confirm-btn:active {
+  border: 1px solid grey;
+  transform: scale(1.1);
 }
